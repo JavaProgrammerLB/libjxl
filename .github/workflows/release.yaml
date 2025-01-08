@@ -18,9 +18,9 @@ jobs:
     - name: Build archive
       shell: bash
       run: |
-        staging="sayHi-${{ github.event.release.tag_name }}"
+        staging="package-${{ github.event.release.tag_name }}"
         mkdir "$staging"
-        cp {ci.sh, deps.sh} "$staging/"
+        cp {doc/benchmarking.md} "$staging/"
         tar czf "$staging.tar.gz" -C "$staging" .
         echo "ASSET=$staging.tar.gz" >> $GITHUB_ENV
     
