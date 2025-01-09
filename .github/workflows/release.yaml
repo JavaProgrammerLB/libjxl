@@ -34,7 +34,7 @@ jobs:
 
           cjxl img/view.jpg view.jxl
 
-          cp {view.jpg,view.jxl} "$staging/"
+          cp {img/view.jpg,view.jxl} "$staging/"
 
           tar czf "$staging.tar.gz" -C "$staging" .
 
