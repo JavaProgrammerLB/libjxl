@@ -5,7 +5,18 @@ name: Release MacOS binaries
       - published
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build: [macos-x86_64, macos-aarch64]
+        include:
+        - build: macos-x86_64
+          os: macos-13
+          target: x86_64-apple-darwin
+        - build: macos-aarch64
+          os: macos-14
+          target: aarch64-apple-darwin
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: read
       packages: write
