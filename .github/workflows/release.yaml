@@ -27,7 +27,7 @@ jobs:
       - name: Build archive
         shell: bash
         run: >
-          staging="package-${{ github.event.release.tag_name }}"
+          staging="package-${{ github.event.release.tag_name }}-${{ matrix.target }}"
 
           mkdir "$staging"
 
