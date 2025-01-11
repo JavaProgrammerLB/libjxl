@@ -21,6 +21,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       
+      - name: Download sjpeg from github
+        run: |
+          curl -L
+          
+      - name: install denpendencies
+        run: |
+          brew install asciidoc
+          brew install cmake
+          brew install docbook-xsl
+          brew install doxygen
+          brew install pkgconf
+          brew install sphinx-doc
+          brew install brotli
+          brew install giflib
+          brew install highway
+          brew install imath
+          brew install jpeg-turbo
+          brew install libpng
+          brew install little-cms2
+          brew install openexr
+          brew install webp
+      
       - name: Install jpeg-xl
         run: |
           brew install jpeg-xl
