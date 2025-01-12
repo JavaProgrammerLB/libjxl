@@ -42,7 +42,7 @@ jobs:
       - name: Download sjpeg from github
         run: |
           git clone --depth 1 \
-            --branch master \
+            --branch main \
             https://github.com/webmproject/sjpeg.git \
             third_party/sjpeg
           cd third_party/sjpeg
