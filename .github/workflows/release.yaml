@@ -51,7 +51,12 @@ jobs:
 
       - name: Use CMake build project
         run: |
-          cmake -S . -B build -Dgtest_dir=/usr/local/opt/googletest -DJPEGXL_FORCE_SYSTEM_BROTLI=ON -DJPEGXL_FORCE_SYSTEM_LCMS2=ON -DJPEGXL_FORCE_SYSTEM_HWY=ON -DJPEGXL_ENABLE_DEVTOOLS=ON -DJPEGXL_ENABLE_JNI=OFF -DJPEGXL_ENABLE_JPEGLI=OFF -DJPEGXL_ENABLE_SKCMS=OFF -DJPEGXL_VERSION=0.11.1 -DJPEGXL_ENABLE_MANPAGES=ON
+          cmake -S . -B build 
+          -DCMAKE_INSTALL_PREFIX=/usr/local \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_FIND_FRAMEWORK=LAST \
+          -DCMAKE_VERBOSE_MAKEFILE=ON \
+          -Dgtest_dir=/usr/local/opt/googletest -DJPEGXL_FORCE_SYSTEM_BROTLI=ON -DJPEGXL_FORCE_SYSTEM_LCMS2=ON -DJPEGXL_FORCE_SYSTEM_HWY=ON -DJPEGXL_ENABLE_DEVTOOLS=ON -DJPEGXL_ENABLE_JNI=OFF -DJPEGXL_ENABLE_JPEGLI=OFF -DJPEGXL_ENABLE_SKCMS=OFF -DJPEGXL_VERSION=0.11.1 -DJPEGXL_ENABLE_MANPAGES=ON -DPython_EXECUTABLE=$(brew --prefix asciidoc)/libexec/bin/python -DPython3_EXECUTABLE=$(brew --prefix asciidoc)/libexec/bin/python3
           cmake --build build
           cmake --build build --target install
       
